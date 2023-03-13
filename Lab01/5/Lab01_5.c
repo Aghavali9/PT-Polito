@@ -13,18 +13,18 @@ int main() {
     switch (oper) {
         case '+': {
             result = op1 + op2;
-            printf("%c %.2f %.2f = %.2f", oper, op1, op2, result);
+            printf("%c %.2f", oper, result);
             break;
         }
         case '-':{
             result = op1 - op2;
-            printf("%c %.2f %.2f = %.2f", oper, op1, op2, result);
+            printf("%c %.2f", oper, result);
             break;
         }
 
         case '*':{
             result = op1 * op2;
-            printf("%c %.2f %.2f = %.2f", oper, op1, op2, result);
+            printf("%c %.2f", oper, result);
             break;
         }
         case '/':{
@@ -34,7 +34,7 @@ int main() {
             }
             else{
                 result = op1 / op2;
-                printf("%c %.2f %.2f = %.2f", oper, op1, op2, result);
+                printf("%c %.2f", oper, result);
                 break;
             }
         }
