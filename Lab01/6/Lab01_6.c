@@ -18,39 +18,40 @@ int main() {
     while (!feof(fp_in)) {
 
         fscanf(fp_in, "%s %f %f", &op, &op1, &op2);
+        if (!feof(fp_in)){
+                switch (op) {
+                    case '+': {
+                        result = op1 + op2;
+                        fprintf(fp_out, "%c %.2f\n", op, result);
+                        break;
+                    }
+                    case '-': {
+                        result = op1 - op2;
+                        fprintf(fp_out, "%c %.2f\n", op, result);
+                        break;
+                    }
 
-        switch (op) {
-            case '+': {
-                result = op1 + op2;
-                fprintf(fp_out, "%c %.2f\n", op, result);
-                break;
-            }
-            case '-': {
-                result = op1 - op2;
-                fprintf(fp_out, "%c %.2f\n", op, result);
-                break;
-            }
-
-            case '*': {
-                result = op1 * op2;
-                fprintf(fp_out, "%c %.2f\n", op, result);
-                break;
-            }
-            case '/': {
-                if (op2 == 0) {
-                    printf("DIVISION BY ZERO");
-                    return 1;
-                } else {
-                    result = op1 / op2;
-                    fprintf(fp_out, "%c %.2f\n", op, result);
-                    break;
+                    case '*': {
+                        result = op1 * op2;
+                        fprintf(fp_out, "%c %.2f\n", op, result);
+                        break;
+                    }
+                    case '/': {
+                        if (op2 == 0) {
+                            printf("DIVISION BY ZERO");
+                            return 1;
+                        } else {
+                            result = op1 / op2;
+                            fprintf(fp_out, "%c %.2f\n", op, result);
+                            break;
+                        }
+                    }
+                    default:
+                        printf("INVALID OPERATOR");
+                        return 1;
                 }
             }
-            default:
-                printf("INVALID OPERATOR");
-                return 1;
         }
-    }
 
 
     fclose(fp_in);
