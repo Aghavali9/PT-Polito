@@ -59,7 +59,11 @@ int decompressing(FILE *fin, FILE *fout){
     do {
         next_char = fgetc(fin);
         if (next_char == '$') {
-            repetitions = fgetc(fin) ;
+            repetitions = fgetc(fin) - '0';
+            /* When you read a character from a file using fgetc, it returns the ASCII value of the character.
+               The ASCII values of the digits 0 to 9 are in the range 48 to 57.
+               By subtracting the ASCII value of '0' (which is 48) from the ASCII value of the digit character, you get the integer value of the digit.
+            */
             for (i = 1; i <= repetitions; i++) {
                 fprintf(fout, "%c", current_char);
             }
