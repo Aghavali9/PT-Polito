@@ -11,7 +11,7 @@ int main() {
     scanf("%s", file_name);
 
    fpin = fopen(file_name, "r");
-    if (file_name == NULL){
+    if (fpin == NULL){
         printf("Error opening the file.");
         return 1;
     }
